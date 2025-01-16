@@ -4,7 +4,7 @@ package operation;
 import java.util.*;
 
 public class FileHolder {
-    private int filesNumber;
+    public int filesNumber;
     public List<String> fileNames;
 
     public FileHolder(int number, List<String> fileNames) {
@@ -19,6 +19,16 @@ public class FileHolder {
     public void printList() {
         for (String string : fileNames) {
             System.out.println(string);
+        }
+    }
+
+    public void setFileNames(String fileName) {
+        try {
+            for (int i = 0; i < filesNumber; i++) {
+                fileNames.add(fileName);
+            }
+        } catch (Exception e) {
+            System.out.println("You Should Enter " + filesNumber + "Names");
         }
     }
 }

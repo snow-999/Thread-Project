@@ -9,17 +9,17 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        List<String> listOfFiles = new ArrayList<>();
-        listOfFiles.add("characteristics");
-        listOfFiles.add("eggplant");
-        listOfFiles.add("volcano");
-        List<String> listOfFiles2 = new ArrayList<>();
-        listOfFiles2.add("tusonami");
-        listOfFiles2.add("tornado");
-        listOfFiles2.add("earthquek");
+        List<String> listOfFileNames = new ArrayList<>();
+        listOfFileNames.add("a");
+        listOfFileNames.add("e");
+        listOfFileNames.add("b");
+        List<String> listOfFileNames2 = new ArrayList<>();
+        listOfFileNames2.add("d");
+        listOfFileNames2.add("c");
+        listOfFileNames2.add("f");
 
-        FileHolder fileHolder = new FileHolder(3, listOfFiles);
-        FileHolder fileHolder2 = new FileHolder(3, listOfFiles2);
+        FileHolder fileHolder = new FileHolder(3, listOfFileNames);
+        FileHolder fileHolder2 = new FileHolder(3, listOfFileNames2);
 
         MyThread th1 = new MyThread(fileHolder);
         MyThread th2 = new MyThread(fileHolder2);
