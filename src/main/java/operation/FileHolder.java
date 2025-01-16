@@ -5,7 +5,7 @@ import java.util.*;
 
 public class FileHolder {
     private int filesNumber;
-    private List<String> fileNames;
+    public List<String> fileNames;
 
     public FileHolder(int number, List<String> fileNames) {
         this.filesNumber = number;

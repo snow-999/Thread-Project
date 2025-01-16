@@ -11,10 +11,10 @@ public class MyThread extends Thread{
 
     @Override
     public void run() {
-        Collections.sort(fileHolder.getFiles());
-        fileHolder.printList();
+        Collections.sort(fileHolder.fileNames);
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
+            fileHolder.printList();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
