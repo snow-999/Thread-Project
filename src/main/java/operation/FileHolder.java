@@ -4,6 +4,7 @@ package operation;
 import java.util.*;
 
 public class FileHolder {
+
     public int filesNumber;
     public List<String> fileNames;
 
@@ -16,11 +17,19 @@ public class FileHolder {
         return fileNames;
     }
 
-    public void printList() {
-        for (String string : fileNames) {
+    public List<String> sortList (List<String> list) {
+        List<String> sortedList = new ArrayList<>(list);
+        Collections.sort(sortedList);
+        return sortedList;
+    }
+
+    public void printList(List<String> list) {
+        for (String string : list) {
             System.out.println(string);
         }
     }
+
+
 
     public void setFileNames(String fileName) {
         try {

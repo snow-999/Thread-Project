@@ -1,11 +1,11 @@
 package operation;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class MyThread extends Thread{
     private final FileHolder fileHolder;
+    public List<String> finalList = new ArrayList<>();
 
     public MyThread(FileHolder fileHolder) {
         this.fileHolder = fileHolder;
@@ -13,20 +13,18 @@ public class MyThread extends Thread{
 
     @Override
     public void run() {
-
-        List<String> fileName = new ArrayList<>(fileHolder.fileNames);
-
-        System.out.println("=================");
-        Collections.sort(fileName);
-
-        for (String name : fileName) {
-            System.out.println(name);
-        }
-
+        List<String> fileNames = new ArrayList<>(fileHolder.fileNames);
+        addToFinalList(fileNames);
         try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
+            Thread.sleep(1000);
+        }  catch (InterruptedException e) {
             throw new RuntimeException(e);
+        } finally {
+            System.out.println(finalList);
         }
+    }
+
+    public void addToFinalList(List<String> listToAdd) {
+        finalList.addAll(listToAdd);
     }
 }

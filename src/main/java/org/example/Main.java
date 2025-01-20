@@ -9,6 +9,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
+        List<String> finalList = new ArrayList<>();
         List<String> listOfFileNames = new ArrayList<>();
         listOfFileNames.add("a");
         listOfFileNames.add("e");
@@ -26,6 +27,6 @@ public class Main {
 
         th1.start();
         th2.start();
-
+        System.out.println("hello");
     }
 }
