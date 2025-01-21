@@ -13,10 +13,6 @@ public class FileHolder {
         this.fileNames = fileNames;
     }
 
-    public List<String> getFiles() {
-        return fileNames;
-    }
-
     public List<String> sortList (List<String> list) {
         List<String> sortedList = new ArrayList<>(list);
         Collections.sort(sortedList);
@@ -26,18 +22,6 @@ public class FileHolder {
     public void printList(List<String> list) {
         for (String string : list) {
             System.out.println(string);
-        }
-    }
-
-
-
-    public void setFileNames(String fileName) {
-        try {
-            for (int i = 0; i < filesNumber; i++) {
-                fileNames.add(fileName);
-            }
-        } catch (Exception e) {
-            System.out.println("You Should Enter " + filesNumber + "Names");
         }
     }
 }

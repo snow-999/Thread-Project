@@ -4,12 +4,12 @@ import operation.FileHolder;
 import operation.MyThread;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
-        List<String> finalList = new ArrayList<>();
         List<String> listOfFileNames = new ArrayList<>();
         listOfFileNames.add("a");
         listOfFileNames.add("e");
@@ -27,6 +27,19 @@ public class Main {
 
         th1.start();
         th2.start();
-        System.out.println("hello");
+
+        List<String> finalList = new ArrayList<>(th1.fileNames);
+        finalList.addAll(th2.fileNames);
+
+        try {
+            th1.join();
+            th2.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        Collections.sort(finalList);
+        fileHolder.printList(finalList);
+
     }
 }

@@ -5,26 +5,26 @@ import java.util.List;
 
 public class MyThread extends Thread{
     private final FileHolder fileHolder;
-    public List<String> finalList = new ArrayList<>();
+    public List<String> fileNames;
 
     public MyThread(FileHolder fileHolder) {
         this.fileHolder = fileHolder;
+        this.fileNames = new ArrayList<>(fileHolder.fileNames);
     }
 
     @Override
     public void run() {
-        List<String> fileNames = new ArrayList<>(fileHolder.fileNames);
-        addToFinalList(fileNames);
+        fileHolder.sortList(addToFinalList(fileNames));
         try {
             Thread.sleep(1000);
         }  catch (InterruptedException e) {
             throw new RuntimeException(e);
         } finally {
-            System.out.println(finalList);
+
         }
     }
 
-    public void addToFinalList(List<String> listToAdd) {
-        finalList.addAll(listToAdd);
+    public List<String> addToFinalList(List<String> listToAdd) {
+        return new ArrayList<>(fileHolder.sortList(listToAdd));
     }
 }
