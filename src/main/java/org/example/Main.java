@@ -14,6 +14,7 @@ public class Main {
         listOfFileNames.add("a");
         listOfFileNames.add("e");
         listOfFileNames.add("b");
+
         List<String> listOfFileNames2 = new ArrayList<>();
         listOfFileNames2.add("d");
         listOfFileNames2.add("c");
@@ -28,15 +29,15 @@ public class Main {
         th1.start();
         th2.start();
 
-        List<String> finalList = new ArrayList<>(th1.fileNames);
-        finalList.addAll(th2.fileNames);
-
         try {
             th1.join();
             th2.join();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
+        List<String> finalList = new ArrayList<>(th1.fileNames);
+        finalList.addAll(th2.fileNames);
 
         Collections.sort(finalList);
         fileHolder.printList(finalList);

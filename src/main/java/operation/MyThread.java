@@ -20,7 +20,7 @@ public class MyThread extends Thread{
         }  catch (InterruptedException e) {
             throw new RuntimeException(e);
         } finally {
-
+            System.out.println("thread is done");
         }
     }
 
